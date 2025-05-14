@@ -1,15 +1,28 @@
 namespace TP04_schnaider.Models;
 
 
-public static class Juego
+public class Juego
 {
-    public static Palabra palabra {get; private set;}
-    public static int intentos{get; private set;}
-    public static List<char>letrasUtilizadas{get; private set;}
-     
-     public static void iniciarJuego()
+    public string palabra {get; private set;}
+    public int intentos{get; private set;}
+    public List<char>letrasUtilizadas{get; private set;}
+    public char[] caracteres {get; private set;}
+    public Juego()
+    {
+        palabra = "OTORRINOLARINGOLOGO";
+        caracteres = palabra.ToCharArray();
+        intentos = 0;
+        letrasUtilizadas = new List<char>();
+    }
+     public int sumarIntentos()
      {
-        
-        this.palabra = new Palabra("OTORRINOLARINGOLOGO", new List<char>('O',''));
+        intentos++;
+        return intentos;
      }
+     public List<char> agregarLetra(char letra){
+        letrasUtilizadas.Add(letra);
+        return letrasUtilizadas;
+     }
+
+     
 }

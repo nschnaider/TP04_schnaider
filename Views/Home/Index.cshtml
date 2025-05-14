@@ -5,4 +5,14 @@
 <div>
     <h1>Index</h1>
     <p>Bienvenidos al sitio web de NombreProyecto</p>
+    <h2>Letras utilizadas: </h2>
+    <h2>Intentos: @ViewBag.intentos</h2>
+    <form action='@Url.Action("IntentoJuego", "Home")' method="get" enctype="multipart/form-data">
+        <p>Nueva letra:</p>
+        <input type="char" name = "letra">
+        <input type="submit" value="Arriesgar letra">
+        <p>Palabra a arriesgar:</p>
+        <input type="text" name = "palabra">
+        <input type="submit" value="Arriesgar palabra">
+    </form>
 </div>

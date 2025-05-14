@@ -14,7 +14,15 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
-    {
+    { 
+        Juego juego = new Juego();
+        ViewBag.caracteres = juego.caracteres;
+        ViewBag.palabra = juego.palabra;
         return View();
     }
+   public IActionResult IntentoJuego(char letra, string palabra)
+   {
+        
+        return View("Index");
+   }
 }
