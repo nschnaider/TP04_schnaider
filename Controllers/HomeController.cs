@@ -16,13 +16,44 @@ public class HomeController : Controller
     public IActionResult Index()
     { 
         Juego juego = new Juego();
-        ViewBag.caracteres = juego.caracteres;
-        ViewBag.palabra = juego.palabra;
+        ViewBag.palabraIntento = juego.palabraIntento;
         return View();
     }
-   public IActionResult IntentoJuego(char letra, string palabra)
+   public IActionResult IntentoLetra(string letra2)
    {
-        
+        Juego juego = new Juego();
+        string palabraIntento;
+        char[] letras = letra2.ToCharArray();
+        char letra = letras[0];
+        if (letra != null){
+            if(!juego.letrasUtilizadas.Contains(letra)){
+            palabraIntento = juego.VerificarLetra(letra);
+           ViewBag.palabraIntento = palabraIntento;
+           List<char> letrass = juego.agregarLetra(letra);
+           ViewBag.letras = letrass;
+           int intentos = juego.sumarIntentos();
+           ViewBag.intentos = intentos;
+            }
+           
+        }
         return View("Index");
+   }
+   public IActionResult IntentoPalabra(string palabra)
+   {
+        Juego juego = new Juego();
+        string resultado;
+        if (palabra != null){
+           if (palabra == juego.palabra){
+            
+             resultado = "Ganaste!";
+           }
+           else{
+            resultado = "Perdiste...";
+           }
+           ViewBag.palabra = juego.palabra;
+           ViewBag.resultado = resultado;
+           
+        }
+        return View("Resultado");
    }
 }
