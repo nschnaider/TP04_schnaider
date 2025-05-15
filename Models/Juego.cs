@@ -30,15 +30,15 @@ public class Juego
         letrasUtilizadas.Add(letra);
         return letrasUtilizadas;
      }
-     public string VerificarLetra(char letra){
+     public char[] VerificarLetra(char letra){
       
       for(int i = 0; i <= caracteres.Length; i++){
                 if (letra == caracteres[i]){
                   caracteresIntento[i] = letra;
                 }
             }
-            palabraIntento = caracteresIntento.ToString();
-            return palabraIntento;
+            
+            return caracteresIntento;
      }
 
      

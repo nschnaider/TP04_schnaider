@@ -22,13 +22,12 @@ public class HomeController : Controller
    public IActionResult IntentoLetra(string letra2)
    {
         Juego juego = new Juego();
-        string palabraIntento;
         char[] letras = letra2.ToCharArray();
         char letra = letras[0];
         if (letra != null){
             if(!juego.letrasUtilizadas.Contains(letra)){
-            palabraIntento = juego.VerificarLetra(letra);
-           ViewBag.palabraIntento = palabraIntento;
+            char[] carIntento = juego.VerificarLetra(letra);
+           ViewBag.palabraIntento = carIntento;
            List<char> letrass = juego.agregarLetra(letra);
            ViewBag.letras = letrass;
            int intentos = juego.sumarIntentos();
