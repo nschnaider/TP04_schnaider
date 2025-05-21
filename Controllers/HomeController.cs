@@ -15,23 +15,26 @@ public class HomeController : Controller
 
     public IActionResult Index()
     { 
-        Juego juego = new Juego();
-        ViewBag.palabraIntento = juego.palabraIntento;
+        Juego.inicializarJuego();
+        ViewBag.palabraIntento = Juego.caracteresIntento;
         return View();
     }
-   public IActionResult IntentoLetra(string letra2)
+   public IActionResult IntentoLetra(char letra)
    {
-        Juego juego = new Juego();
-        char[] letras = letra2.ToCharArray();
-        char letra = letras[0];
+        
+        
+        
         if (letra != null){
-            if(!juego.letrasUtilizadas.Contains(letra)){
-            char[] carIntento = juego.VerificarLetra(letra);
+            if(!Juego.letrasUtilizadas.Contains(letra)){
+            char[] carIntento = Juego.VerificarLetra(letra);
            ViewBag.palabraIntento = carIntento;
-           List<char> letrass = juego.agregarLetra(letra);
+           List<char> letrass = Juego.agregarLetra(letra);
            ViewBag.letras = letrass;
-           int intentos = juego.sumarIntentos();
+           int intentos = Juego.sumarIntentos();
            ViewBag.intentos = intentos;
+            }
+            else{
+                ViewBag.error = "Ya intentaste esa letra";
             }
            
         }
@@ -39,17 +42,17 @@ public class HomeController : Controller
    }
    public IActionResult IntentoPalabra(string palabra)
    {
-        Juego juego = new Juego();
+        
         string resultado;
         if (palabra != null){
-           if (palabra == juego.palabra){
+           if (palabra == Juego.palabra){
             
              resultado = "Ganaste!";
            }
            else{
             resultado = "Perdiste...";
            }
-           ViewBag.palabra = juego.palabra;
+           ViewBag.palabra = Juego.palabra;
            ViewBag.resultado = resultado;
            
         }
