@@ -1,23 +1,64 @@
-html {
-  font-size: 14px;
-  min-height: 100%;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
 body {
-  margin: 10px;
-  padding: 10px;
+  background-color: #fdf6e3;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
 }
 
+div {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-footer {
+h1 {
+  color: #2ecc71;
+}
+
+h2, h3, h4 {
+  color: #34495e;
+}
+
+p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 60%;
+}
+
+input[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   margin-top: 10px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+  cursor: pointer;
 }
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+h5 {
+  color: red;
+  margin-top: 15px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #8e44ad;
+  font-size: larger;
+}
+
